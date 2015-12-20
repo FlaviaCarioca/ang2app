@@ -29,6 +29,7 @@ gulp.task('watch', function () {
 // move dependencies into build dir
 gulp.task('dependencies', function () {
   return gulp.src([
+    'vendor/dist/semantic.min.css',
     'node_modules/traceur/bin/traceur-runtime.js',
     'node_modules/es6-shim/es6-shim.js',
     'node_modules/angular2/bundles/angular2-polyfills.js',
