@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     typescript = require('gulp-typescript');
 
 // run init tasks
-gulp.task('default', ['dependencies', 'js', 'html', 'css']);
+gulp.task('default', ['dependencies', 'compile', 'html', 'css']);
 
 // run development task
 gulp.task('dev', ['watch', 'serve']);

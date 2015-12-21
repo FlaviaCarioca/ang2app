@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ang-2-app</title>
-    
+
     <script src="lib/traceur-runtime.js"></script>
     <script src="lib/system.src.js"></script>
     <script src="lib/Reflect.js"></script>
-    
+
     <!-- Stylesheet -->
     <link rel="stylesheet" type="text/css" href="lib/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
   <body>
 
@@ -20,7 +20,7 @@
     <script>
       System.config({defaultJSExtensions: true});
     </script>
-    
+
     <script src="lib/es6-shim.js"></script>
     <script src="lib/angular2-polyfills.js"></script>
 
@@ -29,7 +29,7 @@
     <!-- <script src="lib/angular2.js"></script> -->
 
     <script>
-      System.import('index').catch(console.log.bind(console));
+      System.import('boot').catch(console.log.bind(console));
     </script>
 
     <!-- Menu Bar -->

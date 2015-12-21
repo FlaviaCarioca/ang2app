@@ -1,4 +1,3 @@
-import { bootstrap } from 'angular2/platform/browser';
 import { Component } from 'angular2/core';
 
 class Article{
@@ -111,7 +110,7 @@ class ArticleComponent{
   `
 })
 
-class RedditApp{
+export class RedditApp{
   articles: Article[];
 
   constructor() {
@@ -138,5 +137,3 @@ class RedditApp{
     return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
   }
 }
-
-bootstrap(RedditApp);
