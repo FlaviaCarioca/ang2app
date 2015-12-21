@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     traceur = require('gulp-traceur'),
     webserver = require('gulp-webserver'),
     livereload = require('gulp-livereload'),
-    tslint = require('gulp-tslint');;
+    tslint = require('gulp-tslint')
+    typescript = require('gulp-typescript');
 
 // run init tasks
 gulp.task('default', ['dependencies', 'js', 'html', 'css']);
@@ -19,10 +20,20 @@ gulp.task('serve', function () {
     }));
 });
 
+// compile typescript
+gulp.task('compile', function () {
+    // gulp.src('src/**/*.ts')
+    //     .pipe(tscompiler({ emitError: false }))
+    gulp.src(['src/**/*.ts'])
+        .pipe(typescript({module: 'commonjs'})).js
+        .pipe(gulp.dest('build'))
+        .pipe(livereload());
+});
+
 // watch for changes and run the relevant task
 gulp.task('watch', function () {
   livereload.listen();
-  gulp.watch('src/**/*.js', ['tslint', 'js']);
+  gulp.watch('src/**/*.ts', ['compile']);
   gulp.watch('src/**/*.html', ['html']);
   gulp.watch('src/**/*.css', ['css']);
 });
@@ -51,7 +62,7 @@ gulp.task('tslint', function () {
 
 // transpile & move js
 gulp.task('js', function () {
-  return gulp.src('src/**/*.js')
+  return gulp.src('src/**/*.ts')
     .pipe(rename({
       extname: ''
     }))
