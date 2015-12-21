@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     traceur = require('gulp-traceur'),
     webserver = require('gulp-webserver'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    tslint = require('gulp-tslint');;
 
 // run init tasks
 gulp.task('default', ['dependencies', 'js', 'html', 'css']);
@@ -21,7 +22,7 @@ gulp.task('serve', function () {
 // watch for changes and run the relevant task
 gulp.task('watch', function () {
   livereload.listen();
-  gulp.watch('src/**/*.js', ['js']);
+  gulp.watch('src/**/*.js', ['tslint', 'js']);
   gulp.watch('src/**/*.html', ['html']);
   gulp.watch('src/**/*.css', ['css']);
 });
@@ -39,6 +40,13 @@ gulp.task('dependencies', function () {
     'node_modules/angular2/bundles/angular2.dev.js'
   ])
     .pipe(gulp.dest('build/lib'));
+});
+
+// lint the code
+gulp.task('tslint', function () {
+    gulp.src('src/**/*.ts')
+        .pipe(tslint())
+        .pipe(tslint.report('verbose'))
 });
 
 // transpile & move js

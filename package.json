@@ -21,6 +21,9 @@
     "gulp-livereload": "^3.8.1",
     "gulp-rename": "1.2.2",
     "gulp-traceur": "0.17.1",
-    "gulp-webserver": "0.9.1"
+    "gulp-tslint": "^4.2.1",
+    "gulp-webserver": "0.9.1",
+    "tslint": "^3.2.1",
+    "typescript": "^1.7.5"
   }
 }
